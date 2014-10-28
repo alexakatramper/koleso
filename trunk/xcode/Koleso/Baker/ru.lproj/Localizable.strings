@@ -1,0 +1,105 @@
+
+// Shelf Navigation Title at the top of the main Issues List
+"SHELF_NAVIGATION_TITLE" = "Журнал \"Колесо\"";
+
+// Products alert
+"PRODUCTS_REQUEST_FAILED_TITLE" = "Нет соединения с App Store";
+"PRODUCTS_REQUEST_FAILED_CLOSE" = "Закрыть";
+
+// Info button
+"INFO_BUTTON_TEXT" = "Info";
+
+// Subscription button
+"SUBSCRIBE_BUTTON_TEXT" = "Подписаться";
+"SUBSCRIBE_BUTTON_DISABLED_TEXT" = "Идет подписка...";
+"SUBSCRIBE_BUTTON_SUBSCRIBED_TEXT" = "Подписано";
+
+"SUBSCRIPTIONS_SHEET_FREE" = "Подписаться бесплатно";
+"SUBSCRIPTIONS_SHEET_RESTORE" = "Восстановить покупки";
+"SUBSCRIPTIONS_SHEET_CLOSE" = "Закрыть";
+
+"SUBSCRIPTIONS_SHEET_GENERIC" = "Настройки подписки";
+"SUBSCRIPTIONS_SHEET_SUBSCRIBED" = "Вы подписаны";
+"SUBSCRIPTIONS_SHEET_NOT_SUBSCRIBED" = "Вы не подписаны";
+
+// Subscription alerts
+"SUBSCRIPTION_SUCCESSFUL_TITLE" = "Подписка завершена";
+"SUBSCRIPTION_SUCCESSFUL_MESSAGE" = "Вы успешно подписаны";
+"SUBSCRIPTION_SUCCESSFUL_CLOSE" = "Закрыть";
+"SUBSCRIPTION_FAILED_TITLE" = "Сбой подписки";
+"SUBSCRIPTION_FAILED_CLOSE" = "Закрыть";
+
+// Issue purchase alerts
+"ISSUE_PURCHASE_SUCCESSFUL_TITLE" = "Покупка завершена";
+"ISSUE_PURCHASE_SUCCESSFUL_MESSAGE" = "Вы успешно приобрели %@";
+"ISSUE_PURCHASE_SUCCESSFUL_CLOSE" = "Закрыть";
+"ISSUE_PURCHASE_FAILED_TITLE" = "Сбой покупки";
+"ISSUE_PURCHASE_FAILED_CLOSE" = "Закрыть";
+
+// Restore alerts
+"RESTORE_FAILED_TITLE" = "Сбой восстановления";
+"RESTORE_FAILED_CLOSE" = "Закрыть";
+
+"RESTORED_ISSUE_NOT_RECOGNISED_TITLE" = "Некоторые выпуски не могут быть восстановлены";
+"RESTORED_ISSUE_NOT_RECOGNISED_MESSAGE" = "Следующие идентификаторы не определены и соответствующие выпускине могут быть восстановлены:\n%@.\n\nСвяжитесь с издателем.";
+"RESTORED_ISSUE_NOT_RECOGNISED_CLOSE" = "Закрыть";
+
+// Download alert
+"DOWNLOAD_FAILED_TITLE" = "Сбой загрузки";
+"DOWNLOAD_FAILED_MESSAGE" = "Невозможно загрузить выпуск";
+"DOWNLOAD_FAILED_CLOSE" = "Закрыть";
+
+// Unzip alert
+"UNZIP_FAILED_TITLE" = "Сбой открытия";
+"UNZIP_FAILED_MESSAGE" = "Невозможно отктыть выпуск";
+"UNZIP_FAILED_CLOSE" = "Закрыть";
+
+// Connection alert
+"INTERNET_CONNECTION_UNAVAILABLE_TITLE" = "Нет соединения с Internet";
+"INTERNET_CONNECTION_UNAVAILABLE_MESSAGE" = "Соединение с Internet недоступно. Некоторые функции приложения требуют соединения с Internet.";
+"INTERNET_CONNECTION_UNAVAILABLE_CLOSE" = "OK";
+
+// Issue buttons
+"ACTION_REMOTE_TEXT" = "Загрузить";
+"ACTION_DOWNLOADED_TEXT" = "Читать";
+"ACTION_BUY_TEXT" = "Купить";
+"ARCHIVE_TEXT" = "В архив";
+"CONNECTING_TEXT" = "Соединение...";
+"DOWNLOADING_TEXT" = "Загрузка...";
+"OPENING_TEXT" = "Открытие...";
+"BUYING_TEXT" = "Покупка...";
+"RETRIEVING_TEXT" = "Обновление цены...";
+
+// Issue states
+"FREE_TEXT" = "Бесплатно";
+"PURCHASED_TEXT" = "Куплено";
+
+// Archiving alert
+"ARCHIVE_ALERT_TITLE" = "Вы уверены, что хотите поместить выпуск в архив?";
+"ARCHIVE_ALERT_MESSAGE" = "Этот выпуск будет удален с вашего устройства. Вы можете загрузить его бесплатно в любое время.";
+"ARCHIVE_ALERT_BUTTON_CANCEL" = "Отмена";
+"ARCHIVE_ALERT_BUTTON_OK" = "В архив";
+
+// Mail alert
+"MAILTO_ALERT_TITLE" = "Ошибка";
+"MAILTO_ALERT_MESSAGE" = "Ваше устройство не поддерживает отправку email!";
+"MAILTO_ALERT_CLOSE" = "OK";
+
+// Modal web view
+"WEB_MODAL_FAILURE_MESSAGE" = "Нет соединения.";
+"WEB_MODAL_CLOSE_BUTTON_TEXT" = "Назад";
+
+// Transaction recording alert
+"TRANSACTION_RECORDING_FAILED_TITLE" = "Нет подтверждения покупки от сервера";
+"TRANSACTION_RECORDING_FAILED_MESSAGE" = "Попытка пудет повторена до успешного завершения";
+"TRANSACTION_RECORDING_FAILED_CLOSE" = "Закрыть";
+
+// Issue opening failure alert
+"ISSUE_OPENING_FAILED_TITLE" = "Сбой открытия выпуска";
+"ISSUE_OPENING_FAILED_MESSAGE" = "При открытии выпуска произошла ошибка. Попробуйте загрузить выпуск повторно или свяжитесь с издателем.";
+"ISSUE_OPENING_FAILED_CLOSE" = "Закрыть";
+
+// Subscriptions
+// (These are just examples: you'll need to provide your own product IDs and names)
+//"com.example.MyBook.subscription.3months" = "3 Months Subscription";
+//"com.example.MyBook.subscription.6months" = "Half Year Subscription";

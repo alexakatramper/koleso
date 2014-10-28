@@ -1,0 +1,28 @@
+{
+    "hpub": 1,
+    "title": "Колесо #1",
+    "author": ["IGEL, ltd."],
+    "creator": ["IGEL, ltd."],
+    "date": "2014-12-01",
+    "url": "http://koleso-mag.ho.ua/",
+    "cover": "koleso-001.png",
+
+    "orientation": "both",
+    "zoomable": false,
+
+    "-baker-background": "#fff",
+    "-baker-vertical-bounce": true,
+    "-baker-media-autoplay": true,
+    "-baker-background-image-portrait": "images/background-portrait.png",
+    "-baker-background-image-landscape": "images/background-landscape.png",
+    "-baker-page-numbers-color": "#333",
+
+    "contents": [
+        "cover.html",
+        "article-01.html",
+        "article-02.html",
+        "article-03.html",
+        "article-04.html",
+        "article-05.html"
+     ]
+}
