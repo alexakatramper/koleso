@@ -55,6 +55,14 @@ h2 {
   text-transform: uppercase;
 }
 
+p {
+	display: block;
+	margin-bottom: 15px;
+	font-size: 1.188em;
+	line-height: 1.50em;
+	text-indent: 1.50em;
+}
+
 /****************************************************************************************************
  * Mini Divider
  */

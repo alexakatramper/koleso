@@ -1,0 +1,122 @@
+
+@charset "UTF-8";
+
+/*	Imports */
+@import url('fonts.css');
+
+/* @import url('typography.css');
+@import url('structure.css');
+@import url('media.css');
+@import url('nav.css');
+@import url('soundbox.css');
+@import url('slideshow.css');
+@import url('card-flip.css');
+*/
+
+
+body {
+	padding: 0px;
+	margin: 0px;
+}
+
+/* a img {    border: 0 } */
+
+div.wrapper {
+	width: 100%;
+	margin-left: auto;
+	margin-right: auto;
+	background-image: url(../images/old_paper.jpg);
+	background-repeat: repeat-y;
+	background-size: 100%;
+	background-color: #faf4da
+}
+
+div.content {
+	width: 748px;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+
+img.cover {
+	width: 100%;
+	border: 0;
+}
+
+
+.article-header {
+	height: 110px;
+/*	padding-top: 120px;*/
+	background-image: url(../images/header.png);
+	background-size: cover;
+/*	-moz-background-size: cover;*/
+	background-repeat: no-repeat;
+}
+
+/* **************************************************************** */
+/* iPad portrait: 768px  */
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait) {
+
+
+}
+
+
+/* **************************************************************** */
+/* iPhone4 landscape: 480px  */
+@media only screen and (device-height: 480px) and (orientation:landscape) {
+
+	div.wrapper {
+		width: 480px;
+	}
+
+	div.content {
+		width: 460px;
+	}
+
+	.article-header {
+		height: 50px;
+	}
+
+}
+
+
+/* **************************************************************** */
+/* iPhone5 landscape: 568px  */
+@media only screen and (device-height: 568px) and (orientation:landscape) {
+	
+	div.wrapper {
+		width: 568px;
+	}
+
+	div.content {
+		width: 540px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.article-header {
+		height: 50px;
+	}
+
+}
+
+
+/* **************************************************************** */
+/* iPhone portrait: 320px  */
+@media only screen and (max-device-width: 320px) and (orientation:portrait) {
+	
+	div.wrapper {
+		width: 320px;
+	}
+
+	div.content {
+		width: 300px;
+		margin-left: auto;
+		margin-right: auto;
+	}
+
+	.article-header {
+		height: 50px;
+	}
+
+}

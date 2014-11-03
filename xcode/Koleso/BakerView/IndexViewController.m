@@ -121,7 +121,18 @@
 
 - (void)setIndexViewHidden:(BOOL)hidden withAnimation:(BOOL)animation {
     CGRect frame;
-    if (hidden) {
+
+	// SAB: always stick to left
+	if (hidden) {
+		frame = CGRectMake(-actualIndexWidth, [self trueY] + pageHeight - actualIndexHeight, actualIndexWidth, actualIndexHeight);
+	} else {
+		// force update size as it not always dete4cted correctly on load
+		[self adjustWebViewSize:(UIWebView*)self.view];
+		frame = CGRectMake(0, [self trueY] + pageHeight - actualIndexHeight, actualIndexWidth, actualIndexHeight);
+	}
+
+	/*
+	if (hidden) {
         if ([self stickToLeft]) {
             frame = CGRectMake(-actualIndexWidth, [self trueY] + pageHeight - actualIndexHeight, actualIndexWidth, actualIndexHeight);
         } else {
@@ -131,10 +142,11 @@
         if ([self stickToLeft]) {
             frame = CGRectMake(0, [self trueY] + pageHeight - actualIndexHeight, actualIndexWidth, actualIndexHeight);
         } else {
-            frame = CGRectMake(0, [self trueY] + pageHeight - indexHeight, actualIndexWidth, actualIndexHeight);
+            frame = CGRectMake(0, [self trueY] + pageHeight - indexHeight, actualIndexWidth, actualIndexHeight); //??
         }
 
     }
+	 */
 
     if (animation) {
         [UIView beginAnimations:@"slideIndexView" context:nil]; {
@@ -194,6 +206,9 @@
 - (void)rotateFromOrientation:(UIInterfaceOrientation)fromInterfaceOrientation toOrientation:(UIInterfaceOrientation)toInterfaceOrientation {
     BOOL hidden = [self isIndexViewHidden]; // cache hidden status before setting page size
 
+	[self adjustWebViewSize:(UIWebView*)self.view];
+
+	
     [self setPageSizeForOrientation:toInterfaceOrientation];
     [self setActualSize];
     [self setIndexViewHidden:hidden withAnimation:NO];
@@ -222,7 +237,33 @@
         disabled = YES;
     }
 }
+
+
 -(void)webViewDidFinishLoad:(UIWebView *)webView {
+	[self adjustWebViewSize:webView];
+
+	// After the first load, point the delegate to the main view controller
+	webView.delegate = webViewDelegate;
+
+	[self setIndexViewHidden:[self isIndexViewHidden] withAnimation:NO];
+}
+
+//-(void)webViewDidStartLoad:(UIWebView *)webView {
+//	NSLog(@"start");
+//}
+
+-(void)webView:(UIWebView *)webView didFailLoadWithError:(NSError *)error {
+	NSLog(@"Error for WEBVIEW: %@", [error description]);
+
+	static int reloadCount = 0;
+	
+	if( reloadCount++ < 10 )
+	{
+		[webView reload];
+	}
+}
+
+-(void)adjustWebViewSize:(UIWebView *)webView {
     id width = book.bakerIndexWidth;
     id height = book.bakerIndexHeight;
 
@@ -246,26 +287,38 @@
 
     NSLog(@"[IndexView] Set size for IndexView to %dx%d (constrained from %dx%d)", actualIndexWidth, actualIndexHeight, indexWidth, indexHeight);
 
-    // After the first load, point the delegate to the main view controller
-    webView.delegate = webViewDelegate;
+//    // After the first load, point the delegate to the main view controller
+//    webView.delegate = webViewDelegate;
 
-    [self setIndexViewHidden:[self isIndexViewHidden] withAnimation:NO];
+//    [self setIndexViewHidden:[self isIndexViewHidden] withAnimation:NO];
 }
 
 - (BOOL)stickToLeft {
     return (actualIndexHeight > actualIndexWidth);
 }
 
-- (CGSize)sizeFromContentOf:(UIView *)view {
+- (CGSize)sizeFromContentOf:(UIWebView *)view {
     // Setting the frame to 1x1 is required to get meaningful results from sizeThatFits when
     // the orientation of the is anything but Portrait.
     // See: http://stackoverflow.com/questions/3936041/how-to-determine-the-content-size-of-a-uiwebview/3937599#3937599
+	
+	// seems like this does not always work correctly
     CGRect frame = view.frame;
     frame.size.width = 1;
     frame.size.height = 1;
     view.frame = frame;
 
     return [view sizeThatFits:CGSizeZero];
+
+	
+	/*
+	//	 seems like this does not always work correctly also...
+	CGSize size;
+	size.width = [[view stringByEvaluatingJavaScriptFromString:@"document.documentElement.scrollWidth"] floatValue];
+	size.height = [[view stringByEvaluatingJavaScriptFromString:@"document.documentElement.scrollHeight"] floatValue];
+	
+	return size;
+	 */
 }
 
 - (NSString *)indexPath {

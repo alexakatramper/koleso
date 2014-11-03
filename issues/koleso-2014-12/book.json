@@ -1,0 +1,33 @@
+{
+    "hpub": 1,
+    "title": "Колесо • Грудень'14",
+    "author": ["IGEL, ltd."],
+    "creator": ["IGEL, ltd."],
+    "date": "2014-12-01",
+    "url": "http://koleso-mag.ho.ua/",
+    "cover": "cover_newsstand.png",
+
+    "orientation": "both",
+    "zoomable": false,
+
+    "-baker-background": "#fff",
+    "-baker-vertical-bounce": true,
+
+	"contents": [
+				 "cover.html",
+				 "page-01.html",
+				 "page-02.html",
+				 "page-03.html",
+				 "page-04.html",
+				 "page-05.html",
+				 "page-06.html",
+				 "page-07.html",
+				 "page-08.html",
+				 "page-09.html",
+				 "page-10.html",
+				 "page-11.html",
+				 "page-12.html",
+				 "page-13.html",
+				 "sneakpeek.html"
+     ]
+}
