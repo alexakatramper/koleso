@@ -33,12 +33,27 @@
 #import "PageTitleLabel.h"
 #import "Utils.h"
 #import "GTMNSString+HTML.h"
+#import "SSZipArchive.h"
 
 @implementation PageTitleLabel
 
-- (id)initWithFile:(NSString *)path color:(UIColor *)color alpha:(float)alpha {
+#ifdef ZIPPED_FILES
+- (id)initWithFile:(NSString *)path withPassword:(NSString *)pswd color:(UIColor *)color alpha:(float)alpha {
     NSError *error = nil;
-    NSString *fileContent = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+	NSString *fileContent = nil;
+	
+	if( pswd && [pswd length] > 0 )
+	{
+		// try to load as zip
+		NSString* password = [Utils getPasswordFromKey:pswd];
+		NSError* error = nil;
+		
+		[SSZipArchive unzipFileAtPath:path toString:&fileContent password:password error:&error];
+	}
+	else {
+		fileContent = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+	}
+	
     if (error == nil) {
         return [self initWithFileContent:fileContent color:(UIColor *)color alpha:(float)alpha];
     } else {
@@ -46,6 +61,19 @@
         return [super init];
     }
 }
+#else
+- (id)initWithFile:(NSString *)path color:(UIColor *)color alpha:(float)alpha {
+	NSError *error = nil;
+	NSString *fileContent = nil;
+	fileContent = [NSString stringWithContentsOfFile:path encoding:NSUTF8StringEncoding error:&error];
+	if (error == nil) {
+		return [self initWithFileContent:fileContent color:(UIColor *)color alpha:(float)alpha];
+	} else {
+		NSLog(@"Error while loading %@ : %@ : Check that encoding is UTF8 for the file.", path, [error localizedDescription]);
+		return [super init];
+	}
+}
+#endif
 
 - (id)initWithFileContent:(NSString *)fileContent color:(UIColor *)color alpha:(float)alpha {
 

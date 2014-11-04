@@ -74,6 +74,12 @@
 @synthesize bakerIndexBounce;
 @synthesize bakerStartAtPage;
 
+#pragma mark - IGEL	HPub Extensions synthesis // SAB
+
+#ifdef ZIPPED_FILES
+@synthesize igelZipKey;
+#endif
+
 #pragma mark - Book status synthesis
 
 @synthesize ID;
@@ -203,7 +209,11 @@
     self.bakerIndexHeight = [bookData objectForKey:@"-baker-index-height"];
     self.bakerIndexBounce = [bookData objectForKey:@"-baker-index-bounce"];
     self.bakerStartAtPage = [bookData objectForKey:@"-baker-start-at-page"];
-
+	
+#ifdef ZIPPED_FILES
+	self.igelZipKey = [bookData objectForKey:@"igel-zip-key"];
+#endif
+	
     [self loadBookJSONDefault];
 
     return YES;
@@ -251,6 +261,11 @@
     if (self.bakerStartAtPage == nil) {
         self.bakerStartAtPage = [NSNumber numberWithInt:1];
     }
+#ifdef ZIPPED_FILES
+	if (self.igelZipKey == nil) {
+		self.igelZipKey = @"";
+	}
+#endif
 }
 
 
@@ -329,7 +344,11 @@
                                                         @"-baker-background-image-landscape",
                                                         @"-baker-page-numbers-color",
                                                         @"-baker-page-screenshots",
-                                                        @"-baker-rendering", nil];
+                                                        @"-baker-rendering",
+#ifdef ZIPPED_FILES
+                                                        @"igel-zip-key",
+#endif
+                                                        nil];
 
 
     if (![self matchParam:param againstParamsArray:shouldBeString]) {
@@ -466,7 +485,10 @@
     [bakerIndexHeight release];
     [bakerIndexBounce release];
     [bakerStartAtPage release];
-
+	
+#ifdef ZIPPED_FILES
+	[igelZipKey release];
+#endif
     [ID release];
     [path release];
     [isBundled release];

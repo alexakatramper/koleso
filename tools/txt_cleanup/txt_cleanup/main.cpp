@@ -30,7 +30,7 @@ int main( int argc, const char * argv[] )
 		buf1 = new char[MAX_LEN];
 		buf2 = new char[MAX_LEN];
 		
-		string srcPath = "/Users/schutsky/Documents/Projects/ArtisticUkraine/classic/Ірчан Мирослав/Ірчан Мирослав - Карпатська ніч.txt";
+		string srcPath = "/Users/schutsky/Documents/Projects/ArtisticUkraine/classic/Черемшина Марко/Марко Черемшина - Бодай їм путь пропала.txt";
 		string dstPath = srcPath;
 		size_t pos = dstPath.rfind( ".txt" );
 		if( pos == string::npos )
@@ -59,6 +59,8 @@ int main( int argc, const char * argv[] )
 		// and the second one is the title
 		// and the third one is empty
 		// so keep them as is
+		
+		// TODO: check first line for correct ending '\n'
 		for( int i = 0; i < 3; ++i )
 		{
 			memset( buf1, 0, MAX_LEN );

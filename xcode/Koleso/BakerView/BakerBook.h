@@ -73,6 +73,10 @@
 @property (copy, nonatomic) NSNumber *bakerIndexBounce;
 @property (copy, nonatomic) NSNumber *bakerStartAtPage;
 
+#pragma mark - IGEL	HPub Extensions Properties // SAB
+
+@property (copy, nonatomic) NSString *igelZipKey;
+
 #pragma mark - Book Status Properties
 
 @property (copy, nonatomic) NSString *ID;

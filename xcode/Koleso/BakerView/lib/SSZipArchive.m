@@ -304,7 +304,7 @@
 	if (zip == NULL) {
 		if (error) {
 			NSDictionary *userInfo = [NSDictionary dictionaryWithObject:@"failed to open zip file" forKey:NSLocalizedDescriptionKey];
-			*error = [NSError errorWithDomain:@"SSZipArchiveErrorDomain" code:-1 userInfo:userInfo];
+			*error = [NSError errorWithDomain:@"SSZipArchiveErrorDomain" code:100501 userInfo:userInfo];
 		}
 		return NO;
 	}
@@ -316,7 +316,7 @@
 	if (unzGoToFirstFile(zip) != UNZ_OK) {
 		NSDictionary *userInfo = [NSDictionary dictionaryWithObject:@"failed to open first file in zip file" forKey:NSLocalizedDescriptionKey];
 		if (error) {
-			*error = [NSError errorWithDomain:@"SSZipArchiveErrorDomain" code:-2 userInfo:userInfo];
+			*error = [NSError errorWithDomain:@"SSZipArchiveErrorDomain" code:100502 userInfo:userInfo];
 		}
 		return NO;
 	}
@@ -353,7 +353,8 @@
 				free(tmpStr);
 			}
 			
-			unzCloseCurrentFile( zip );
+			if( UNZ_CRCERROR == unzCloseCurrentFile( zip ) ) //  Return UNZ_CRCERROR if all the file was read but the CRC is not good
+				success = NO;
 		}
 	}
 	
@@ -363,7 +364,7 @@
 	if (!success) {
 		if (error) {
 			NSDictionary *userInfo = [NSDictionary dictionaryWithObject:@"error reading zip file" forKey:NSLocalizedDescriptionKey];
-			*error = [NSError errorWithDomain:@"SSZipArchiveErrorDomain" code:-3 userInfo:userInfo];
+			*error = [NSError errorWithDomain:@"SSZipArchiveErrorDomain" code:100503 userInfo:userInfo];
 		}
 	}
 
