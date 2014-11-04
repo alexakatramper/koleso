@@ -1,0 +1,121 @@
+
+div.toc-content {
+	max-width: 748px;
+	min-height: 1024px;
+	margin-left: auto;
+	margin-right: auto;
+	color: #000;
+	background-image: url(../images/old_paper.jpg);
+	background-repeat: repeat-y;
+	background-size: 100%;
+/*	background-color: rgb(255, 255, 155);*/
+	box-shadow: 5px 0px 10px rgba(0,0,0,0.25);
+	position: absolute;
+	top: 44px;
+	left: 0;
+}
+
+
+
+.toc-list {
+/*	margin-left: 10;*/
+/*	margin-right: 10;*/
+	list-style-type: none;
+	border-top: 3px solid #77f9ae;
+	font-size: 1.5em;
+}
+
+.toc_head {
+	padding: 10px;
+	font-family: 'CyrillicOld_Bold';
+}
+
+.toc_item {
+	padding: 4px;
+/*	font-family: 'CyrillicOld_Bold';*/
+}
+
+.toc_sublist {
+	list-style-type: none;
+}
+
+
+.toc_item a {
+	padding: 4px;
+	text-decoration:none;
+/*	font-family: 'Pelagy';*/
+/*	font-size: 0.8em;*/
+}
+
+
+/* **************************************************************** */
+/* iPad landscape: 768px  */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:landscape) {
+	
+	div.toc-content {
+		width: 400px;
+		max-width: 1024px;
+		min-height: 768px;
+	}
+}
+
+/* **************************************************************** */
+/* iPad portrait: 768px  */
+
+@media only screen and (min-device-width: 768px) and (max-device-width: 1024px) and (orientation:portrait) {
+
+	div.toc-content {
+		width: 400px;
+		max-width: 748px;
+		min-height: 1024px;
+	}
+}
+
+
+/* **************************************************************** */
+/* iPhone4 landscape: 480px  */
+@media only screen and (max-device-width: 480px) and (orientation:landscape) {
+
+	div.toc-content {
+		width: 400px;
+		max-width: 460px;
+		min-height: 300px;
+	}
+}
+
+
+/* **************************************************************** */
+/* iPhone5 landscape: 568px  */
+@media only screen and (device-height: 568px) and (orientation:landscape) {
+
+	div.toc-content {
+		width: 400px;
+		max-width: 548px;
+		min-height: 300px;
+	}
+
+}
+
+
+/* **************************************************************** */
+/* iPhone4 portrait: 320x480  */
+@media only screen and (device-height: 480px) and (orientation:portrait) {
+	
+	div.toc-content {
+		width: 320px;
+		min-height: 460px;
+	}
+	
+}
+
+/* **************************************************************** */
+/* iPhone5 portrait: 320x568  */
+@media only screen and (device-height: 568px) and (orientation:portrait) {
+	
+	div.toc-content {
+		width: 320px;
+		min-height: 568px;
+	}
+	
+}

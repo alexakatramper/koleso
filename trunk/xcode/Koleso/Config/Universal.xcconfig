@@ -6,4 +6,5 @@ PRODUCT_NAME = Koleso
 WRAPPER_EXTENSION = app
 
 
-//GCC_PREPROCESSOR_DEFINITIONS = BAKER_NEWSSTAND $(inherited)	// comment BAKER_NEWSSTAND to enable standalone mode
+GCC_PREPROCESSOR_DEFINITIONS = BAKER_NEWSSTAND $(inherited)	// comment BAKER_NEWSSTAND to enable standalone mode
+

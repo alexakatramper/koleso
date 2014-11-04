@@ -207,7 +207,8 @@
 - (NSData *)getFromURL:(NSURL *)url cachePolicy:(NSURLRequestCachePolicy)cachePolicy {
     NSError *error = nil;
     NSHTTPURLResponse *response = nil;
-    NSURLRequest *request = [self requestForURL:url parameters:[NSDictionary dictionary] method:@"GET" cachePolicy:cachePolicy];
+	NSURLRequest *request = [self requestForURL:url parameters:[NSDictionary dictionary] method:@"GET" cachePolicy:cachePolicy];
+//    NSURLRequest *request = [self requestForURL:url parameters:[NSDictionary dictionaryWithObjectsAndKeys:@"ua.org.igelgames.koleso", @"app_id", nil ] method:@"GET" cachePolicy:cachePolicy];
 
     NSData *data = [NSURLConnection sendSynchronousRequest:request returningResponse:&response error:&error];
 
