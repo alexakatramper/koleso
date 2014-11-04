@@ -32,6 +32,7 @@
 
 #import "BakerAnalyticsEvents.h"
 
+#import "Flurry.h"
 
 @implementation BakerAnalyticsEvents
 
@@ -51,10 +52,12 @@
     
     self = [super init];
     
-    // ****** Add here your analytics code
-    // tracker = [[GAI sharedInstance] trackerWithTrackingId:@"ADD_HERE_YOUR_TRACKING_CODE"];
-    
-    
+	[Flurry startSession:@"YPSVWB7ZMKYG9R4MYWFD"];
+	
+#ifdef DEBUG
+//	[Flurry setDebugLogEnabled:YES];
+#endif
+	
     // ****** Register to handle events
     [self registerEvents];
     
@@ -101,40 +104,64 @@
     // If you want, you can handle differently the various events
     if ([[notification name] isEqualToString:@"BakerApplicationStart"]) {
         // Track here when the Baker app opens
-    } else if ([[notification name] isEqualToString:@"BakerIssueDownload"]) {
+
+	} else if ([[notification name] isEqualToString:@"BakerIssueDownload"]) {
         // Track here when a issue download is requested
 		IssueViewController* issueViewController = (IssueViewController*)[notification object];
-		NSLog( @"EVENT: download %@", issueViewController.issue.title );
-    } else if ([[notification name] isEqualToString:@"BakerIssueOpen"]) {
+		NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:issueViewController.issue.title, @"issue", nil];
+		[Flurry logEvent:@"download" withParameters:dictionary];
+		//		NSLog( @"EVENT: download %@", issueViewController.issue.title );
+		
+	} else if ([[notification name] isEqualToString:@"BakerIssueOpen"]) {
         // Track here when a issue is opened to be read
 		IssueViewController* issueViewController = (IssueViewController*)[notification object];
-		NSLog( @"EVENT: open %@", issueViewController.issue.title );
-    } else if ([[notification name] isEqualToString:@"BakerIssueClose"]) {
+		NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:issueViewController.issue.title, @"issue", nil];
+		[Flurry logEvent:@"open" withParameters:dictionary];
+		//		NSLog( @"EVENT: open %@", issueViewController.issue.title );
+		
+	} else if ([[notification name] isEqualToString:@"BakerIssueClose"]) {
         // Track here when a issue that was being read is closed
 		BakerViewController *bakerview = [notification object];
-		NSLog( @"EVENT: closed %@", bakerview.book.title );
-    } else if ([[notification name] isEqualToString:@"BakerIssuePurchase"]) {
+		NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:bakerview.book.title, @"issue", nil];
+		[Flurry logEvent:@"close" withParameters:dictionary];
+		// NSLog( @"EVENT: closed %@", bakerview.book.title );
+		
+	} else if ([[notification name] isEqualToString:@"BakerIssuePurchase"]) {
         // Track here when a issue purchase is requested
 		IssueViewController* issueViewController = (IssueViewController*)[notification object];
-		NSLog( @"EVENT: purchase %@", issueViewController.issue.title );
-    } else if ([[notification name] isEqualToString:@"BakerIssueArchive"]) {
+		NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:issueViewController.issue.title, @"issue", nil];
+		[Flurry logEvent:@"purchase" withParameters:dictionary];
+		//		NSLog( @"EVENT: purchase %@", issueViewController.issue.title );
+		
+	} else if ([[notification name] isEqualToString:@"BakerIssueArchive"]) {
         // Track here when a issue archival is requested
 		IssueViewController* issueViewController = (IssueViewController*)[notification object];
-		NSLog( @"EVENT: archival %@", issueViewController.issue.title );
-    } else if ([[notification name] isEqualToString:@"BakerSubscriptionPurchase"]) {
+		NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:issueViewController.issue.title, @"issue", nil];
+		[Flurry logEvent:@"archive" withParameters:dictionary];
+		//		NSLog( @"EVENT: archival %@", issueViewController.issue.title );
+		
+	} else if ([[notification name] isEqualToString:@"BakerSubscriptionPurchase"]) {
         // Track here when a subscription purchased is requested
-    } else if ([[notification name] isEqualToString:@"BakerViewPage"]) {
+		
+	} else if ([[notification name] isEqualToString:@"BakerViewPage"]) {
         // Track here when a specific page is opened
 		BakerViewController *bakerview = [notification object]; // Uncomment this to get the BakerViewController object and get its properties
-		NSLog( @"EVENT: open %@ at page %i", bakerview.book.title, bakerview.currentPageNumber );
+		NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:bakerview.book.title, @"issue", [NSString stringWithFormat:@"%i", bakerview.currentPageNumber], @"page", nil];
+		[Flurry logEvent:@"archive" withParameters:dictionary];
+		//		NSLog( @"EVENT: open %@ at page %i", bakerview.book.title, bakerview.currentPageNumber );
         //NSLog(@" - Tracking page %d", bakerview.currentPageNumber); // This is useful to check if it works
-    } else if ([[notification name] isEqualToString:@"BakerViewIndexOpen"]) {
+		
+	} else if ([[notification name] isEqualToString:@"BakerViewIndexOpen"]) {
 		BakerViewController *bakerview = [notification object];
-		NSLog( @"EVENT: index %@", bakerview.book.title );
+		NSDictionary *dictionary = [NSDictionary dictionaryWithObjectsAndKeys:bakerview.book.title, @"issue", nil];
+		[Flurry logEvent:@"index" withParameters:dictionary];
+		//		NSLog( @"EVENT: index %@", bakerview.book.title );
         // Track here the opening of the index and status bar
-    } else if ([[notification name] isEqualToString:@"BakerViewModalBrowser"]) {
+		
+	} else if ([[notification name] isEqualToString:@"BakerViewModalBrowser"]) {
         // Track here the opening of the modal view
-    } else {
+		
+	} else {
         
     }
 }

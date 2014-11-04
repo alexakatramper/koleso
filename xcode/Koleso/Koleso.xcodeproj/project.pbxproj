@@ -7,8 +7,11 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		131397F81A0773FF00C39C55 /* libFlurry_5.4.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 131397F31A0773FF00C39C55 /* libFlurry_5.4.0.a */; };
+		131397F91A0773FF00C39C55 /* libFlurryAds_5.4.0.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 131397F71A0773FF00C39C55 /* libFlurryAds_5.4.0.a */; };
 		135EB13819CB394500614ED6 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 135EB13619CB394500614ED6 /* InfoPlist.strings */; };
 		13AB787B19D046DD00A1ADFB /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = 13AB787A19D046DD00A1ADFB /* libxml2.dylib */; };
+		13B18A411A07CCED00859396 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 13B18A401A07CCED00859396 /* Security.framework */; };
 		20CC551D16AD346900DEFB5C /* Localizable.strings in Resources */ = {isa = PBXBuildFile; fileRef = 20CC551F16AD346900DEFB5C /* Localizable.strings */; };
 		9F55576815B4C6C3003072A3 /* QuartzCore.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9F55576515B4C6B7003072A3 /* QuartzCore.framework */; };
 		9F58D85115D66E870027902C /* UICustomNavigationBar.m in Sources */ = {isa = PBXBuildFile; fileRef = 9F58D84E15D66E870027902C /* UICustomNavigationBar.m */; };
@@ -60,6 +63,12 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		131397EF1A07724100C39C55 /* settings.txt */ = {isa = PBXFileReference; lastKnownFileType = text; path = settings.txt; sourceTree = "<group>"; };
+		131397F21A0773FF00C39C55 /* Flurry.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Flurry.h; sourceTree = "<group>"; };
+		131397F31A0773FF00C39C55 /* libFlurry_5.4.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurry_5.4.0.a; sourceTree = "<group>"; };
+		131397F51A0773FF00C39C55 /* FlurryAdDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAdDelegate.h; sourceTree = "<group>"; };
+		131397F61A0773FF00C39C55 /* FlurryAds.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FlurryAds.h; sourceTree = "<group>"; };
+		131397F71A0773FF00C39C55 /* libFlurryAds_5.4.0.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libFlurryAds_5.4.0.a; sourceTree = "<group>"; };
 		135EB12E19CB301400614ED6 /* Koleso-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Koleso-Info.plist"; sourceTree = "<group>"; };
 		135EB13019CB338B00614ED6 /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
 		135EB13119CB338C00614ED6 /* Universal.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Universal.xcconfig; sourceTree = "<group>"; };
@@ -71,6 +80,7 @@
 		135EB13919CB394C00614ED6 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		135EB13A19CB395400614ED6 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		13AB787A19D046DD00A1ADFB /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		13B18A401A07CCED00859396 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		20CC551E16AD346900DEFB5C /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/Localizable.strings; sourceTree = "<group>"; };
 		9F55576515B4C6B7003072A3 /* QuartzCore.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = QuartzCore.framework; path = System/Library/Frameworks/QuartzCore.framework; sourceTree = SDKROOT; };
 		9F58D84D15D66E870027902C /* UICustomNavigationBar.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = UICustomNavigationBar.h; sourceTree = "<group>"; };
@@ -165,6 +175,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				13B18A411A07CCED00859396 /* Security.framework in Frameworks */,
+				131397F91A0773FF00C39C55 /* libFlurryAds_5.4.0.a in Frameworks */,
 				13AB787B19D046DD00A1ADFB /* libxml2.dylib in Frameworks */,
 				AB67F5BC16EE9B79005A04F6 /* SystemConfiguration.framework in Frameworks */,
 				ABD245531639E3650080F056 /* AVFoundation.framework in Frameworks */,
@@ -176,15 +188,45 @@
 				9F55576815B4C6C3003072A3 /* QuartzCore.framework in Frameworks */,
 				AB40048115B4B90200D87E2A /* MessageUI.framework in Frameworks */,
 				AB40048315B4B90A00D87E2A /* libz.dylib in Frameworks */,
+				131397F81A0773FF00C39C55 /* libFlurry_5.4.0.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		131397F01A0773E800C39C55 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				131397F11A0773FF00C39C55 /* Flurry */,
+				131397F41A0773FF00C39C55 /* FlurryAds */,
+			);
+			name = Flurry;
+			sourceTree = "<group>";
+		};
+		131397F11A0773FF00C39C55 /* Flurry */ = {
+			isa = PBXGroup;
+			children = (
+				131397F21A0773FF00C39C55 /* Flurry.h */,
+				131397F31A0773FF00C39C55 /* libFlurry_5.4.0.a */,
+			);
+			path = Flurry;
+			sourceTree = "<group>";
+		};
+		131397F41A0773FF00C39C55 /* FlurryAds */ = {
+			isa = PBXGroup;
+			children = (
+				131397F51A0773FF00C39C55 /* FlurryAdDelegate.h */,
+				131397F61A0773FF00C39C55 /* FlurryAds.h */,
+				131397F71A0773FF00C39C55 /* libFlurryAds_5.4.0.a */,
+			);
+			path = FlurryAds;
+			sourceTree = "<group>";
+		};
 		135EB12F19CB338B00614ED6 /* Config */ = {
 			isa = PBXGroup;
 			children = (
+				131397EF1A07724100C39C55 /* settings.txt */,
 				135EB13019CB338B00614ED6 /* Debug.xcconfig */,
 				135EB13119CB338C00614ED6 /* Universal.xcconfig */,
 				135EB13219CB338C00614ED6 /* Project.xcconfig */,
@@ -325,6 +367,7 @@
 		ABAFB57C15AB9A2E002FA498 = {
 			isa = PBXGroup;
 			children = (
+				131397F01A0773E800C39C55 /* Flurry */,
 				ABAFB59115AB9A2E002FA498 /* Baker */,
 				BF78D1AF180C8F070093DFBC /* BakerAssets.xcassets */,
 				AB40047B15B4B8B800D87E2A /* BakerShelf */,
@@ -347,6 +390,7 @@
 		ABAFB58A15AB9A2E002FA498 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				13B18A401A07CCED00859396 /* Security.framework */,
 				13AB787A19D046DD00A1ADFB /* libxml2.dylib */,
 				AB67F5BB16EE9B79005A04F6 /* SystemConfiguration.framework */,
 				ABABF1A51646C04D00A75E67 /* StoreKit.framework */,
@@ -421,6 +465,11 @@
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0610;
+				TargetAttributes = {
+					ABAFB58615AB9A2E002FA498 = {
+						DevelopmentTeam = EHKH738CCC;
+					};
+				};
 			};
 			buildConfigurationList = ABAFB58115AB9A2E002FA498 /* Build configuration list for PBXProject "Koleso" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -542,6 +591,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 135EB13119CB338C00614ED6 /* Universal.xcconfig */;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flurry",
+					"$(PROJECT_DIR)/FlurryAds",
+				);
 			};
 			name = Debug;
 		};
@@ -549,6 +603,11 @@
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = 135EB13119CB338C00614ED6 /* Universal.xcconfig */;
 			buildSettings = {
+				LIBRARY_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)/Flurry",
+					"$(PROJECT_DIR)/FlurryAds",
+				);
 			};
 			name = Release;
 		};

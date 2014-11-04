@@ -1,0 +1,20 @@
+{
+    "hpub": 1,
+    "title": "Колесо • Січень'15",
+    "author": ["IGEL, ltd."],
+    "creator": ["IGEL, ltd."],
+    "date": "2015-01-01",
+    "url": "http://koleso-almanac.in.ua/",
+    "cover": "koleso-2015-01.png",
+
+    "orientation": "both",
+    "zoomable": false,
+
+    "-baker-background": "#fff",
+    "-baker-vertical-bounce": true,
+
+	"contents": [
+				 "cover.html",
+				 "sneakpeek.html"
+     ]
+}

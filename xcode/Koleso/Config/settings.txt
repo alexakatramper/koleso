@@ -1,0 +1,4 @@
+
+Bundle ID: ua.org.igel.koleso
+
+Flurry key:	YPSVWB7ZMKYG9R4MYWFD
