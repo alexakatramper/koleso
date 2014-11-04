@@ -434,7 +434,11 @@
 
 
         // ****** Title
+#ifdef ZIPPED_FILES
+		PageTitleLabel *title = [[PageTitleLabel alloc]initWithFile:[pages objectAtIndex: i] withPassword:self.book.igelZipKey color:foregroundColor alpha:[book.bakerPageNumbersAlpha floatValue]];
+#else
         PageTitleLabel *title = [[PageTitleLabel alloc]initWithFile:[pages objectAtIndex: i] color:foregroundColor alpha:[book.bakerPageNumbersAlpha floatValue]];
+#endif
         [title setX:(pageWidth * i + ((pageWidth - title.frame.size.width) / 2)) Y:(pageHeight / 2 + 20)];
         [scrollView addSubview:title];
         [title release];
@@ -944,27 +948,42 @@
 
     NSString *path = [NSString stringWithString:[pages objectAtIndex:page - 1]];
 
-    if ([[NSFileManager defaultManager] fileExistsAtPath:path]) {
-        NSLog(@"[BakerView] Loading: %@", [[NSFileManager defaultManager] displayNameAtPath:path]);
+    if ( ! [[NSFileManager defaultManager] fileExistsAtPath:path])
+		return NO;
+
+	NSLog(@"[BakerView] Loading: %@", [[NSFileManager defaultManager] displayNameAtPath:path]);
 #ifdef ZIPPED_FILES
+	if( [self.book.igelZipKey length] > 0 )
+	{
+		// try to load as zip
 		NSString* content = 0;
-		NSString* password = @"koleso";
+		NSString* password = [Utils getPasswordFromKey:self.book.igelZipKey];
 		NSError* error = nil;
-		// first try to load as zip
+
 		if( [SSZipArchive unzipFileAtPath:path toString:&content password:password error:&error] ) {
 			[webView loadHTMLString:content baseURL:[NSURL fileURLWithPath:path]];
 			[content release];
 		}
 		else {
-			[webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:path]]];
+			NSLog(@"[BakerView] ERROR: Failed to unzip with error: %@", error);
+			NSString *infoPath = [[NSBundle mainBundle] pathForResource:@"error" ofType:@"html" inDirectory:@"info"];
+			if ([[NSFileManager defaultManager] fileExistsAtPath:infoPath]) {
+				[webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:infoPath]]];
+			}
+			else {
+				return NO;
+			}
 		}
+	}
+	else {
+		[webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:path]]];
+	}
 
 #else
-        [webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:path]]];
+	[webView loadRequest:[NSURLRequest requestWithURL:[NSURL fileURLWithPath:path]]];
 #endif
-        return YES;
-    }
-    return NO;
+	
+	return YES;
 }
 
 #pragma mark - MODAL WEBVIEW

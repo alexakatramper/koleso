@@ -129,4 +129,29 @@
     [webView stringByEvaluatingJavaScriptFromString:jsDispatchEvent];
 }
 
++ (NSString*)getPasswordFromKey:(NSString*)igelKey {
+	
+	char pass[17] = { 0 };
+	const char* key = [igelKey cStringUsingEncoding:NSASCIIStringEncoding];
+
+	for( int i = 0; i < 16; ++i )
+	{
+		int j = key[i*2+1];
+		if( j <= '9' )
+			j -= '0';
+		else
+			j -= ( 'A' - 10 );
+		
+		if( j > 16 )	// tmtn goes wrong...
+			break;
+		
+		pass[j] = key[i*2];
+		
+		if( pass[j] > '9' )
+			pass[j] = pass[j] - 'A' + 'a';
+	}
+	NSString* res = [[NSString stringWithCString:pass encoding:NSASCIIStringEncoding] retain];
+	return res;
+}
+
 @end

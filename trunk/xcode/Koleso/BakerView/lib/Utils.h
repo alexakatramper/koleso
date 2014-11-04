@@ -54,4 +54,6 @@
 + (void)webView:(UIWebView *)webView dispatchHTMLEvent:(NSString *)event;
 + (void)webView:(UIWebView *)webView dispatchHTMLEvent:(NSString *)event withParams:(NSDictionary *)params;
 
++ (NSString*)getPasswordFromKey:(NSString*)igelKey;
+
 @end

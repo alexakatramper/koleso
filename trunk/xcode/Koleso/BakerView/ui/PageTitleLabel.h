@@ -34,7 +34,11 @@
 
 @interface PageTitleLabel : UILabel
 
+#ifdef ZIPPED_FILES
+- (id)initWithFile:(NSString *)path withPassword:(NSString *)pswd color:(UIColor *)color alpha:(float)alpha;
+#else
 - (id)initWithFile:(NSString *)path color:(UIColor *)color alpha:(float)alpha;
+#endif
 - (id)initWithFileContent:(NSString *)fileContent color:(UIColor *)color alpha:(float)alpha;
 - (void)setX:(CGFloat) x Y:(CGFloat) y;
 

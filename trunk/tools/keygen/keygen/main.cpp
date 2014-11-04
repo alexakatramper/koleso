@@ -13,6 +13,27 @@
 
 using std::vector;
 
+// decode password from char string
+void decodePass( const char* key, char* pass )
+{
+	memset( pass, 0, 17 );
+	for( int i = 0; i < 16; ++i )
+	{
+		int j = key[i*2+1];
+		if( j <= '9' )
+			j -= '0';
+		else
+			j -= ( 'A' - 10 );
+		
+		pass[j] = key[i*2];
+		
+		if( pass[j] > '9' )
+			pass[j] = pass[j] - 'A' + 'a';
+	}
+}
+
+
+// extract password from binary key
 void extractPass( char* key, char* pass )
 {
 	memset( pass, 0, 17 );
@@ -30,6 +51,7 @@ void extractPass( char* key, char* pass )
 int main(int argc, const char * argv[])
 {
 	char pass[17] = { 0 };
+	printf( "                             key:pass\n" );
 	for( int n = 0; n < 10; ++ n )
 	{
 		char key[33] = { 0 };
@@ -67,7 +89,7 @@ int main(int argc, const char * argv[])
 		}
 		
 		extractPass( key, pass );
-		printf( " : %s", pass );
+		printf( ":%s", pass );
 		printf( "\n" );
 	}
 	return 0;
