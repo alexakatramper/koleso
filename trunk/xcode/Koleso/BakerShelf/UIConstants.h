@@ -45,27 +45,27 @@
     // Info text for issues in the shelf
     // #define ISSUES_INFO_FONT @"Helvetica"
     // #define ISSUES_INFO_FONT_SIZE 15
-    #define ISSUES_INFO_COLOR @"#929292"
+    #define ISSUES_INFO_COLOR @"#000000"
 
     #define ISSUES_PRICE_COLOR @"#bc242a"
 
     // Download/read button for issues in the shelf
     // #define ISSUES_ACTION_BUTTON_FONT @"Helvetica-Bold"
     // #define ISSUES_ACTION_BUTTON_FONT_SIZE 11
-    #define ISSUES_ACTION_BUTTON_BACKGROUND_COLOR @"#bc242a"
+    #define ISSUES_ACTION_BUTTON_BACKGROUND_COLOR @"#673800"
     #define ISSUES_ACTION_BUTTON_COLOR @"#ffffff"
 
     // Archive button for issues in the shelf
     // #define ISSUES_ARCHIVE_BUTTON_FONT @"Helvetica-Bold"
     // #define ISSUES_ARCHIVE_BUTTON_FONT_SIZE 11
-    #define ISSUES_ARCHIVE_BUTTON_COLOR @"#bc242a"
-    #define ISSUES_ARCHIVE_BUTTON_BACKGROUND_COLOR @"#ffffff"
+    #define ISSUES_ARCHIVE_BUTTON_COLOR @"#673800"
+    #define ISSUES_ARCHIVE_BUTTON_BACKGROUND_COLOR @"#bababa"
 
     // Text and spinner for issues that are being loaded in the shelf
-    #define ISSUES_LOADING_LABEL_COLOR @"#bc242a"
+    #define ISSUES_LOADING_LABEL_COLOR @"#673800"
     #define ISSUES_LOADING_SPINNER_COLOR @"#929292"
 
     // Progress bar for issues that are being downloaded in the shelf
-    #define ISSUES_PROGRESSBAR_TINT_COLOR @"#bc242a"
+    #define ISSUES_PROGRESSBAR_TINT_COLOR @"#673800"
 
 #endif

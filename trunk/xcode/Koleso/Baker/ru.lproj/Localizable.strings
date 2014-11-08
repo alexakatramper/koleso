@@ -1,6 +1,6 @@
 
 // Shelf Navigation Title at the top of the main Issues List
-"SHELF_NAVIGATION_TITLE" = "Журнал \"Колесо\"";
+"SHELF_NAVIGATION_TITLE" = "Альманах \"Колесо\"";
 
 // Products alert
 "PRODUCTS_REQUEST_FAILED_TITLE" = "Нет соединения с App Store";
