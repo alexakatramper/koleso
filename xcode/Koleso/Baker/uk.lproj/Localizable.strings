@@ -71,7 +71,7 @@
 "RETRIEVING_TEXT" = "Відновлення цін...";
 
 // Issue states
-"FREE_TEXT" = "Задарма";
+"FREE_TEXT" = "Безкоштовно";
 "PURCHASED_TEXT" = "Придбано";
 
 // Archiving alert

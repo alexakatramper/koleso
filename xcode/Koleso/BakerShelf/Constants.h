@@ -54,13 +54,13 @@
         // Optional - This constant specifies the URL to ping back when a user purchases an issue or a subscription.
         // For more information, see: https://github.com/Simbul/baker/wiki/Baker-Server-API
         // E.g. @"http://example.com/purchased"
-        #define PURCHASE_CONFIRMATION_URL @""
+        #define PURCHASE_CONFIRMATION_URL @"http://koleso-almanac.in.ua/shelf/purchase_confirmation.php"
 
         // ----------------------------------------------------------------------------------------------------
         // Optional - This constant specifies a URL that will be used to retrieve the list of purchased issues.
         // For more information, see: https://github.com/Simbul/baker/wiki/Baker-Server-API
         // E.g. @"http://example.com/purchases"
-        #define PURCHASES_URL @""
+        #define PURCHASES_URL @"http://koleso-almanac.in.ua/shelf/purchases.php"
 
         // ----------------------------------------------------------------------------------------------------
         // Optional - This constant specifies the URL to ping back when a user enables push notifications.
@@ -83,8 +83,13 @@
         //     @"com.example.MyBook.subscription.3months", \
         //     @"com.example.MyBook.subscription.6months", \
         //     nil]
-        #define AUTO_RENEWABLE_SUBSCRIPTION_PRODUCT_IDS [NSArray arrayWithObjects: \
-            nil]
+
+		#define AUTO_RENEWABLE_SUBSCRIPTION_PRODUCT_IDS [NSArray arrayWithObjects: \
+			nil]
+
+//		#define AUTO_RENEWABLE_SUBSCRIPTION_PRODUCT_IDS [NSArray arrayWithObjects: \
+//			@"ua.org.igel.koleso.3months", \
+//			nil]
 
     #endif
 
