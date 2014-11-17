@@ -73,6 +73,8 @@
 
         #ifdef BAKER_NEWSSTAND
         purchasesManager = [PurchasesManager sharedInstance];
+		[self addPurchaseObserver:@selector(handleIssuePurchased:) name:@"notification_issue_purchased"];
+		[self addPurchaseObserver:@selector(handleIssuePurchaseFailed:) name:@"notification_issue_purchase_failed"];
         [self addPurchaseObserver:@selector(handleIssueRestored:) name:@"notification_issue_restored"];
 
         [self addIssueObserver:@selector(handleDownloadStarted:) name:self.issue.notificationDownloadStartedName];
@@ -499,15 +501,17 @@
     [self.issue download];
 }
 - (void)buy {
-    [self addPurchaseObserver:@selector(handleIssuePurchased:) name:@"notification_issue_purchased"];
-    [self addPurchaseObserver:@selector(handleIssuePurchaseFailed:) name:@"notification_issue_purchase_failed"];
+	// SAB: moved to 'init' as we can get notifications after app restart
+	//    [self addPurchaseObserver:@selector(handleIssuePurchased:) name:@"notification_issue_purchased"];
+	//    [self addPurchaseObserver:@selector(handleIssuePurchaseFailed:) name:@"notification_issue_purchase_failed"];
 
     if (![purchasesManager purchase:self.issue.productID]) {
         // Still retrieving SKProduct: delay purchase
         purchaseDelayed = YES;
 
-        [self removePurchaseObserver:@"notification_issue_purchased"];
-        [self removePurchaseObserver:@"notification_issue_purchase_failed"];
+		// SAB: don't remove here as installed once in 'init'
+		// [self removePurchaseObserver:@"notification_issue_purchased"];
+		// [self removePurchaseObserver:@"notification_issue_purchase_failed"];
 
         [purchasesManager retrievePriceFor:self.issue.productID];
 
@@ -525,6 +529,7 @@
 
         [self removePurchaseObserver:@"notification_issue_purchased"];
         [self removePurchaseObserver:@"notification_issue_purchase_failed"];
+		[self removePurchaseObserver:@"notification_issue_restored"];
 
         [purchasesManager markAsPurchased:transaction.payment.productIdentifier];
 
@@ -561,6 +566,7 @@
 
         [self removePurchaseObserver:@"notification_issue_purchased"];
         [self removePurchaseObserver:@"notification_issue_purchase_failed"];
+		[self removePurchaseObserver:@"notification_issue_restored"];
 
         self.issue.transientStatus = BakerIssueTransientStatusNone;
         [self refresh];

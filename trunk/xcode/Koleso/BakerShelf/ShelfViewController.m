@@ -83,7 +83,9 @@
                                                      name:@"notification_book_protocol"
                                                    object:nil];
 
-        [[SKPaymentQueue defaultQueue] addTransactionObserver:purchasesManager];
+		// SAB: set observer in 'handleProductsRetrieved'
+		// otherwise restoreTransactions can be received before products' IDs...
+        // [[SKPaymentQueue defaultQueue] addTransactionObserver:purchasesManager];
         #endif
 
         api = [BakerAPI sharedInstance];
@@ -622,6 +624,11 @@
         }
         [shelfStatus save];
     }
+	
+#ifdef BAKER_NEWSSTAND
+	// SAB: moved from 'init'
+	[[SKPaymentQueue defaultQueue] addTransactionObserver:purchasesManager];
+#endif
 }
 
 - (void)handleProductsRequestFailed:(NSNotification *)notification {
