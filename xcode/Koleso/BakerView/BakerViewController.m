@@ -1101,7 +1101,7 @@
                     anchorFromURL  = [[url fragment] retain];
                     NSString *file = [[url relativePath] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
 
-                    int page = [pages indexOfObject:file];
+                    NSUInteger page = [pages indexOfObject:file];
                     if (page == NSNotFound)
                     {
                         NSString *params = [url query];
@@ -1655,7 +1655,8 @@
 
     if ([self getCurrentPageOffset] > 0)
     {
-        if (targetOffset < 0) targetOffset = 0;
+        if(targetOffset < 0)
+			targetOffset = 0;
 
         //NSLog(@"[BakerView] Scrolling page up to %d", targetOffset);
         [self scrollPage:currPage to:[NSString stringWithFormat:@"%d", targetOffset] animating:animating];
@@ -1666,7 +1667,8 @@
     int currentPageMaxScroll = currentPageHeight - pageHeight;
     if ([self getCurrentPageOffset] < currentPageMaxScroll)
     {
-        if (targetOffset > currentPageMaxScroll) targetOffset = currentPageMaxScroll;
+        if (targetOffset > currentPageMaxScroll)
+			targetOffset = currentPageMaxScroll;
 
         //NSLog(@"[BakerView] Scrolling page down to %d", targetOffset);
         [self scrollPage:currPage to:[NSString stringWithFormat:@"%d", targetOffset] animating:animating];
