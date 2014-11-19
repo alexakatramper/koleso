@@ -32,8 +32,11 @@
 
 #import "BakerBookStatus.h"
 
+#define CURR_BBS_FORMAT_VERSION 1
+
 @implementation BakerBookStatus
 
+@synthesize version;	// used to handle possible changes in format
 @synthesize page;
 @synthesize scrollIndex;
 
@@ -47,6 +50,7 @@
 - (NSDictionary *)load {
     NSDictionary *jsonDict = [super load];
 
+	self.version     = [jsonDict objectForKey:@"version"];
     self.page        = [jsonDict objectForKey:@"page"];
     self.scrollIndex = [jsonDict objectForKey:@"scroll-index"];
 
@@ -54,7 +58,7 @@
 }
 
 - (void)save {
-    NSDictionary *jsonDict = [NSDictionary dictionaryWithObjectsAndKeys:page, @"page", scrollIndex, @"scroll-index", nil];
+    NSDictionary *jsonDict = [NSDictionary dictionaryWithObjectsAndKeys:[NSNumber numberWithInt:CURR_BBS_FORMAT_VERSION], @"version", page, @"page", scrollIndex, @"scroll-index", nil];
 
     [super save:jsonDict];
 }

@@ -100,7 +100,7 @@
 					// encode MAC with MD5
 					unsigned char md5[CC_MD5_DIGEST_LENGTH] = {0};
 					
-					CC_MD5( [address cStringUsingEncoding:NSASCIIStringEncoding], address.length, md5 );
+					CC_MD5( [address cStringUsingEncoding:NSASCIIStringEncoding], (CC_LONG)address.length, md5 );
 					
 					for( int i = 0; i < CC_MD5_DIGEST_LENGTH; i++ )
 					{

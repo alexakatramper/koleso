@@ -35,6 +35,7 @@
 
 @interface BakerBookStatus : JSONStatus
 
+@property (copy, nonatomic) NSNumber *version;
 @property (copy, nonatomic) NSNumber *page;
 @property (copy, nonatomic) NSString *scrollIndex;
 
