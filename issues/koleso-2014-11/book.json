@@ -1,0 +1,36 @@
+{
+    "hpub": 1,
+    "title": "Колесо • Листопад'14",
+    "author": ["IGEL, ltd."],
+    "creator": ["IGEL, ltd."],
+    "date": "2014-12-01",
+    "url": "http://koleso-almanac.in.ua/",
+    "cover": "koleso-2014-11.png",
+
+    "orientation": "both",
+    "zoomable": false,
+
+    "-baker-background": "#fff",
+    "-baker-vertical-bounce": true,
+    
+    "igel-zip-key": "5FE1E7807AEB98599C764224DE9D4523",
+
+	"contents": [
+				 "cover.html",
+				 "page-01.html",
+				 "page-02.html",
+				 "page-03.html",
+				 "page-04.html",
+				 "page-05.html",
+				 "page-06.html",
+				 "page-07.html",
+				 "page-08.html",
+				 "page-09.html",
+				 "page-10.html",
+				 "page-11.html",
+				 "page-12.html",
+				 "page-13.html",
+				 "page-14.html",
+				 "sneakpeek.html"
+     ]
+}
