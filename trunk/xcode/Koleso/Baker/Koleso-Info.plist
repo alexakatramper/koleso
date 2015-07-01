@@ -12,6 +12,10 @@
 	<dict>
 		<key>UINewsstandIcon</key>
 		<dict>
+			<key>UINewsstandBindingEdge</key>
+			<string>UINewsstandBindingEdgeLeft</string>
+			<key>UINewsstandBindingType</key>
+			<string>UINewsstandBindingTypeMagazine</string>
 			<key>CFBundleIconFiles</key>
 			<array>
 				<string>newsstand-app-icon</string>
@@ -22,6 +26,10 @@
 	<dict>
 		<key>UINewsstandIcon</key>
 		<dict>
+			<key>UINewsstandBindingType</key>
+			<string>UINewsstandBindingTypeMagazine</string>
+			<key>UINewsstandBindingEdge</key>
+			<string>UINewsstandBindingEdgeLeft</string>
 			<key>CFBundleIconFiles</key>
 			<array>
 				<string>newsstand-app-icon</string>
@@ -37,11 +45,11 @@
 	<key>CFBundlePackageType</key>
 	<string>APPL</string>
 	<key>CFBundleShortVersionString</key>
-	<string>1.0.0</string>
+	<string>1.0.2</string>
 	<key>CFBundleSignature</key>
 	<string>????</string>
 	<key>CFBundleVersion</key>
-	<string>1.0.0</string>
+	<string>1.0.2</string>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>UIBackgroundModes</key>

@@ -75,14 +75,14 @@
 "PURCHASED_TEXT" = "Придбано";
 
 // Archiving alert
-"ARCHIVE_ALERT_TITLE" = "Ви певні, що хочете заархівувати цей випуск?";
+"ARCHIVE_ALERT_TITLE" = "Ви певні, що хочете помістити випуск до архіву?";
 "ARCHIVE_ALERT_MESSAGE" = "Цей випуск буде видалено з вашого пристрою. Ви зможе завантажити його будь-коли безкоштовно.";
 "ARCHIVE_ALERT_BUTTON_CANCEL" = "Відміна";
 "ARCHIVE_ALERT_BUTTON_OK" = "В архів";
 
 // Mail alert
 "MAILTO_ALERT_TITLE" = "Невдача";
-"MAILTO_ALERT_MESSAGE" = "Ваш пристрій не підтримую відправку email!";
+"MAILTO_ALERT_MESSAGE" = "Ваш пристрій не підтримує відправку email!";
 "MAILTO_ALERT_CLOSE" = "OK";
 
 // Modal web view
